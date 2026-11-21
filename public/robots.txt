@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hayoubmouffok.github.io/sitemap.xml

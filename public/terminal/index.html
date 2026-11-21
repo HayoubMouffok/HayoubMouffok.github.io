@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hayoub Mouffok — Ingénieur DevOps, systèmes, réseaux et cybersécurité</title>
+<meta name="description" content="Ingénieur DevOps, systèmes, réseaux et cybersécurité en Île-de-France : Linux, Windows et Active Directory, routage et VPN, sécurité des infrastructures, CI/CD et Kubernetes. Disponible immédiatement.">
+<meta property="og:title" content="Hayoub Mouffok — Ingénieur DevOps, systèmes, réseaux et cybersécurité">
+<meta property="og:description" content="DevOps, systèmes, réseaux et sécurité des infrastructures. Disponible immédiatement en Île-de-France.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hayoub-mouffok.netlify.app/">
+<meta property="og:image" content="https://hayoub-mouffok.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230c1424'/%3E%3Cpath d='M3 4l4 4-4 4' stroke='%23ffb347' stroke-width='2' fill='none'/%3E%3Crect x='8' y='11' width='5' height='2' fill='%23ffb347'/%3E%3C/svg%3E">
+<script src="app.js" defer></script>
+</head>
+<body>
+<canvas id="topo" aria-hidden="true"></canvas>
+<div class="crt" aria-hidden="true"></div>
+
+<div class="window">
+  <div class="titlebar">
+    <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="title">hayoub@k8s-lab: ~</span>
+    <button type="button" class="theme-btn" id="theme-btn" aria-label="Passer en mode jour">☀ jour</button>
+    <a class="src" href="https://github.com/HayoubMouffok/portfolio" rel="noopener">code source</a>
+    <a class="cv-quick" href="#contact" data-run="contact">Mes CV</a>
+  </div>
+
+  <main id="log" class="log" aria-live="polite">
+
+    <section class="block" id="whoami" data-cmd="whoami">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">whoami</span></p>
+      <h1 class="name">Hayoub Mouffok</h1>
+      <p class="role">J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
+      <div class="fetch">
+        <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+          <polygon class="hex" points="100,8 180,54 180,146 100,192 20,146 20,54"/>
+          <polygon class="hex in" points="100,30 161,65 161,135 100,170 39,135 39,65"/>
+          <g class="spokes"><line x1="100" y1="100" x2="100" y2="48"/><line x1="100" y1="100" x2="146" y2="124"/><line x1="100" y1="100" x2="54" y2="124"/><line x1="100" y1="100" x2="146" y2="76"/></g>
+          <circle class="n c-cloud" cx="100" cy="48" r="9"/><circle class="n c-net" cx="146" cy="124" r="9"/>
+          <circle class="n c-sys" cx="54" cy="124" r="9"/><circle class="n c-sec" cx="146" cy="76" r="9"/>
+          <circle class="core" cx="100" cy="100" r="21"/>
+          <text x="100" y="108" text-anchor="middle">HM</text>
+        </svg>
+        <dl class="info">
+          <dt>rôle</dt><dd>Ingénieur DevOps, systèmes, réseaux et cybersécurité</dd>
+          <dt>uptime</dt><dd>3 ans et demi en entreprise, Redpill puis CNAM</dd>
+          <dt class="c-cloud">devops</dt><dd>GitLab CI, Jenkins, Terraform, Ansible, Kubernetes, AWS</dd>
+          <dt class="c-net">réseau</dt><dd>BGP, OSPF, EVPN-VXLAN, VLAN, VPN</dd>
+          <dt class="c-sys">systèmes</dt><dd>Linux, Windows Server, Active Directory, VMware</dd>
+          <dt class="c-sec">sécurité</dt><dd>Falco, KubeArmor, Kyverno, Vault, Zero Trust</dd>
+          <dt>diplôme</dt><dd>Master Réseaux et Objets Connectés (CNAM), CCNA 2</dd>
+          <dt>statut</dt><dd class="ok"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</dd>
+        </dl>
+      </div>
+      <p class="hint">Naviguez avec les commandes en bas de l'écran, ou les touches <kbd>1</kbd> à <kbd>4</kbd>.</p>
+    </section>
+
+    <section class="block" id="projets" data-cmd="projets">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls -l projets/</span></p>
+      <ul class="plist">
+        <li><button type="button" class="prow" data-open="p-reseau-datacenter" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-net">réseau</span><span class="pname">reseau-datacenter/</span><span class="pdesc">Fabric BGP / EVPN-VXLAN générée depuis NetBox, testée à chaque modification</span></button></li>
+        <li><button type="button" class="prow" data-open="p-k8s-reponse-intrusions" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-sec">cyber</span><span class="pname">k8s-reponse-intrusions/</span><span class="pdesc">Détection et blocage automatiques des attaques : 100 % bloquées en 30 ms</span></button></li>
+        <li><button type="button" class="prow" data-open="p-k8s-gitops" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-cloud">devops</span><span class="pname">k8s-gitops/</span><span class="pdesc">Cluster entièrement décrit dans Git, déployé par Terraform et Argo CD</span></button></li>
+      </ul>
+      <p class="phint dim">Cliquez sur un projet pour l'ouvrir.</p>
+
+      <article class="proj acc-net" id="p-reseau-datacenter">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/reseau-datacenter<span class="live">● sur GitHub</span></div>
+        <h2>Réseau datacenter automatisé</h2>
+        <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 720 330" role="img" aria-labelledby="fab-t">
+            <title id="fab-t">Topologie : deux spines en AS 65000 reliés en eBGP à deux leafs (AS 65011 et 65012), un tunnel VXLAN VNI 100 entre les leafs qui étend le même réseau entre host1 et host2</title>
+            <g class="lnk">
+              <line x1="190" y1="94" x2="190" y2="190"/><line x1="190" y1="94" x2="530" y2="190"/>
+              <line x1="530" y1="94" x2="190" y2="190"/><line x1="530" y1="94" x2="530" y2="190"/>
+              <line x1="190" y1="238" x2="190" y2="268"/><line x1="530" y1="238" x2="530" y2="268"/>
+            </g>
+            <path class="tunnel" d="M260 222 C 330 250, 390 250, 460 222"/>
+            <text class="tag" x="360" y="262" text-anchor="middle">tunnel VXLAN · VNI 100</text>
+            <g class="node spine"><rect x="120" y="46" width="140" height="48" rx="4"/><text x="190" y="70" text-anchor="middle">spine1</text><text class="sub" x="190" y="86" text-anchor="middle">AS 65000</text></g>
+            <g class="node spine"><rect x="460" y="46" width="140" height="48" rx="4"/><text x="530" y="70" text-anchor="middle">spine2</text><text class="sub" x="530" y="86" text-anchor="middle">AS 65000</text></g>
+            <g class="node"><rect x="120" y="190" width="140" height="48" rx="4"/><text x="190" y="214" text-anchor="middle">leaf1</text><text class="sub" x="190" y="230" text-anchor="middle">AS 65011 · VTEP</text></g>
+            <g class="node"><rect x="460" y="190" width="140" height="48" rx="4"/><text x="530" y="214" text-anchor="middle">leaf2</text><text class="sub" x="530" y="230" text-anchor="middle">AS 65012 · VTEP</text></g>
+            <g class="host"><rect x="130" y="268" width="120" height="40" rx="4"/><text x="190" y="293" text-anchor="middle">host1 .11</text></g>
+            <g class="host"><rect x="470" y="268" width="120" height="40" rx="4"/><text x="530" y="293" text-anchor="middle">host2 .12</text></g>
+            <text class="tag" x="360" y="300" text-anchor="middle">même LAN 10.10.100.0/24</text>
+            <text class="tag left" x="18" y="132">underlay eBGP + ECMP</text>
+            <text class="tag left" x="18" y="150">overlay BGP EVPN</text>
+          </svg>
+          <figcaption>Fabric générée depuis NetBox. À chaque push, la CI la reconstruit et vérifie les sessions BGP et EVPN, l'ECMP via les deux spines et le ping de host1 à host2 à travers le tunnel.</figcaption>
+        </figure>
+        <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
+        <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
+      </article>
+      <article class="proj acc-sec" id="p-k8s-reponse-intrusions">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-reponse-intrusions<span class="live">● sur GitHub</span></div>
+        <h2>Réponse automatique aux intrusions dans Kubernetes</h2>
+        <p>Prolongement de mon mémoire de Master. Falco détecte une attaque dans un conteneur, un orchestrateur Python la classe selon MITRE ATT&amp;CK, puis applique une politique KubeArmor, NetworkPolicy ou Kyverno ciblée sur le seul pod attaqué. Aucune intervention humaine pour les menaces certaines, une validation humaine pour les autres.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Résultats mesurés sur 10 scénarios rejoués (6 attaques, 4 actions légitimes)</caption>
+            <thead><tr><th scope="col">Indicateur</th><th scope="col">Mémoire (v1)</th><th scope="col">Aujourd'hui</th></tr></thead>
+            <tbody>
+              <tr><td>Détection</td><td class="dim">non mesurée</td><td class="ok">100 %</td></tr>
+              <tr><td>Faux positifs</td><td class="dim">non mesurés</td><td class="ok">0</td></tr>
+              <tr><td>Attaques rejouées bloquées</td><td class="dim">audit seul</td><td class="ok">6 sur 6</td></tr>
+              <tr><td>Détection vers blocage</td><td class="dim">0,9 s</td><td class="ok">30 ms</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <video class="demo" src="assets/demo-k8s.mp4" poster="assets/demo-k8s-poster.png" autoplay muted loop playsinline width="1234" height="808">Démo : une lecture de /etc/shadow réussit, une politique KubeArmor est générée, la même attaque est ensuite bloquée.</video>
+        <p class="stack">k3s, Falco, KubeArmor, Kyverno, Python, Prometheus, Grafana, GitHub Actions</p>
+        <p><a href="https://github.com/HayoubMouffok/k8s-adaptive-security-orchestrator" rel="noopener">Lire le code et les résultats sur GitHub</a></p>
+      </article>
+
+      <article class="proj acc-cloud" id="p-k8s-gitops">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-gitops<span class="live">● sur GitHub</span></div>
+        <h2>Plateforme Kubernetes GitOps</h2>
+        <p>Terraform installe Argo CD, qui déploie depuis Git l'application, l'accès HTTPS, la supervision et les règles de sécurité. Chaque modification est testée avant d'arriver sur le cluster.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 720 300" role="img" aria-labelledby="git-t">
+            <title id="git-t">Chaîne GitOps : un git push déclenche la CI (lint, Trivy, tests sur un cluster kind) ; Terraform installe Argo CD, qui synchronise depuis Git cert-manager, ingress-nginx, Kyverno, Prometheus et Grafana, et l'application</title>
+            <g class="lnk arrow">
+              <line x1="138" y1="60" x2="232" y2="60"/><line x1="138" y1="190" x2="232" y2="190"/>
+              <line x1="368" y1="190" x2="450" y2="190"/><line x1="370" y1="190" x2="450" y2="110"/><line x1="370" y1="190" x2="450" y2="270"/>
+              <line x1="368" y1="190" x2="450" y2="150"/><line x1="368" y1="190" x2="450" y2="230"/>
+            </g>
+            <g class="node"><rect x="18" y="36" width="120" height="48" rx="4"/><text x="78" y="66" text-anchor="middle">git push</text></g>
+            <g class="node"><rect x="232" y="30" width="250" height="60" rx="4"/><text x="357" y="56" text-anchor="middle">GitHub Actions</text><text class="sub" x="357" y="74" text-anchor="middle">lint · Trivy · tests sur kind</text></g>
+            <g class="node"><rect x="18" y="166" width="120" height="48" rx="4"/><text x="78" y="196" text-anchor="middle">Terraform</text></g>
+            <g class="node spine"><rect x="232" y="166" width="136" height="48" rx="4"/><text x="300" y="190" text-anchor="middle">Argo CD</text><text class="sub" x="300" y="206" text-anchor="middle">app-of-apps</text></g>
+            <g class="host"><rect x="450" y="94" width="220" height="32" rx="4"/><text x="560" y="115" text-anchor="middle">cert-manager · HTTPS</text></g>
+            <g class="host"><rect x="450" y="134" width="220" height="32" rx="4"/><text x="560" y="155" text-anchor="middle">ingress-nginx</text></g>
+            <g class="host"><rect x="450" y="174" width="220" height="32" rx="4"/><text x="560" y="195" text-anchor="middle">Kyverno · politiques</text></g>
+            <g class="host"><rect x="450" y="214" width="220" height="32" rx="4"/><text x="560" y="235" text-anchor="middle">Prometheus · Grafana</text></g>
+            <g class="host"><rect x="450" y="254" width="220" height="32" rx="4"/><text x="560" y="275" text-anchor="middle">application durcie</text></g>
+          </svg>
+          <figcaption>Tout le cluster est décrit dans Git. Kyverno refuse par exemple une image non versionnée, et la CI vérifie que les huit applications sont synchronisées et que le site répond en HTTPS.</figcaption>
+        </figure>
+        <p class="stack">Terraform, Argo CD, Helm, cert-manager, Kyverno, Trivy</p>
+        <p><a href="https://github.com/HayoubMouffok/k8s-gitops-platform" rel="noopener">Voir le projet sur GitHub</a></p>
+      </article>
+
+    </section>
+
+    <section class="block" id="parcours" data-cmd="parcours">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">git log parcours</span></p>
+      <ol class="gitlog">
+        <li><span class="sha">04/2026</span><div><b>Co-fondateur technique, Haltere Ego</b><p>Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH. Je la fais évoluer à partir des retours des bêta-testeurs.</p></div></li>
+        <li><span class="sha">11/2024</span><div><b>Ingénieur chercheur en sécurité Kubernetes, CNAM</b><p>Architecture de sécurité adaptative, de la détection à l'action : une réponse en 0,9 s au lieu d'environ 50 minutes à la main.</p></div></li>
+        <li><span class="sha">04/2022</span><div><b>Administrateur systèmes et réseaux, Redpill</b><p>Administration des serveurs de production Linux et AWS, supervision avec Prometheus. Conception et déploiement d'un VPN OpenVPN pour 80 personnes en deux semaines, lors d'un déménagement, sans coupure. Gestion des accès : comptes VPN, secrets HashiCorp Vault, droits des bases de données. Automatisation avec Ansible, Terraform, GitLab CI et Jenkins.</p></div></li>
+        <li><span class="sha">06/2020</span><div><b>Stage DSI, Mairie de Saint-Ouen</b><p>Systèmes et téléphonie IP : Active Directory, Azure AD, postes et lignes IP.</p></div></li>
+        <li><span class="sha">2020</span><div><b>Formation</b><p>Master Réseaux et Objets Connectés (CNAM), licence professionnelle ASSR, DUT Réseaux et Télécommunications, Cisco CCNA 2.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block" id="stack" data-cmd="stack">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">cat stack.yaml</span></p>
+      <pre class="file" data-name="stack.yaml"><span class="ln"> 1</span><span class="k">hayoub</span>:
+<span class="ln"> 2</span>  <span class="k">devops</span>: <span class="v">[Docker, Kubernetes, Helm, Argo CD, Terraform, Ansible, GitLab CI, Jenkins, GitHub Actions, AWS]</span>
+<span class="ln"> 3</span>  <span class="k">reseaux</span>: <span class="v">[TCP/IP, routage et commutation, VLAN, BGP, OSPF, EVPN-VXLAN, VPN (OpenVPN), téléphonie IP]</span>
+<span class="ln"> 4</span>  <span class="k">systemes</span>: <span class="v">[Linux (Debian, Ubuntu), Windows Server, Active Directory, Azure AD, VMware]</span>
+<span class="ln"> 5</span>  <span class="k">securite</span>: <span class="v">[segmentation réseau, Zero Trust, HashiCorp Vault, Falco, KubeArmor, Kyverno, Trivy]</span>
+<span class="ln"> 6</span>  <span class="k">supervision</span>: <span class="v">[Prometheus, Grafana, ELK, Zabbix, Nagios]</span>
+<span class="ln"> 7</span>  <span class="k">scripts</span>: <span class="v">[Python, Bash, PowerShell]</span>
+<span class="ln"> 8</span>  <span class="k">langues</span>: <span class="v">[français, anglais (B2)]</span></pre>
+    </section>
+
+    <section class="block" id="contact" data-cmd="contact">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">contact</span></p>
+      <p>Je cherche un poste d'ingénieur DevOps, systèmes, réseaux ou cybersécurité en Île-de-France. N'hésitez pas à me contacter pour échanger.</p>
+      <ul class="links">
+        <li><span class="dim">mail</span> <a href="mailto:hayoub.mouffok@gmail.com">hayoub.mouffok@gmail.com</a></li>
+        <li><span class="dim">linkedin</span> <a href="https://www.linkedin.com/in/hayoub-mouffok-47256b214" rel="noopener">hayoub-mouffok</a></li>
+        <li><span class="dim">github</span> <a href="https://github.com/HayoubMouffok" rel="noopener">HayoubMouffok</a></li>
+        <li><span class="dim">cv</span> <a href="/cv/CV_Hayoub_Mouffok_DevOps.pdf" download>DevOps</a></li>
+        <li><span class="dim">cv</span> <a href="/cv/CV_Hayoub_Mouffok_Reseaux.pdf" download>réseaux</a></li>
+        <li><span class="dim">cv</span> <a href="/cv/CV_Hayoub_Mouffok_Systemes.pdf" download>systèmes</a></li>
+        <li><span class="dim">cv</span> <a href="/cv/CV_Hayoub_Mouffok_Securite.pdf" download>cybersécurité</a></li>
+      </ul>
+    </section>
+
+    <section class="block" id="help" data-cmd="help">
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">help</span></p>
+      <dl class="yaml">
+        <dt>whoami</dt><dd>qui je suis</dd>
+        <dt>projets</dt><dd>ce que j'ai construit, avec les résultats</dd>
+        <dt>parcours</dt><dd>mes expériences et ma formation</dd>
+        <dt>stack</dt><dd>les outils que j'utilise</dd>
+        <dt>contact</dt><dd>me joindre ou télécharger mon CV</dd>
+        <dt class="sep">bonus</dt><dd class="dim">pour les curieux du métier</dd>
+        <dt>nmap hayoub</dt><dd>scanner mes compétences</dd>
+        <dt>traceroute hayoub</dt><dd>suivre mon parcours, saut par saut</dd>
+        <dt>ping recruteur</dt><dd>vérifier que je réponds</dd>
+        <dt>kubectl get nodes</dt><dd>mes domaines, vus comme un cluster</dd>
+        <dt>jour / nuit</dt><dd>changer de thème</dd>
+        <dt>clear</dt><dd>vider l'écran</dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <form class="prompt" id="prompt" autocomplete="off">
+    <label for="cmd" class="ps1">hayoub@k8s-lab:~$</label>
+    <input id="cmd" name="cmd" type="text" spellcheck="false" autocapitalize="off" placeholder="help">
+    <button type="submit" class="sr">Exécuter</button>
+    <div class="chips" role="group" aria-label="Commandes">
+      <button type="button" data-run="projets"><span class="rj" aria-hidden="true"></span><span class="led2" aria-hidden="true"></span><kbd>1</kbd>projets</button>
+      <button type="button" data-run="parcours"><span class="rj" aria-hidden="true"></span><span class="led2" aria-hidden="true"></span><kbd>2</kbd>parcours</button>
+      <button type="button" data-run="stack"><span class="rj" aria-hidden="true"></span><span class="led2" aria-hidden="true"></span><kbd>3</kbd>stack</button>
+      <button type="button" data-run="contact"><span class="rj" aria-hidden="true"></span><span class="led2" aria-hidden="true"></span><kbd>4</kbd>contact</button>
+    </div>
+  </form>
+  <div class="statusbar" role="status" aria-label="État du laboratoire">
+    <span class="seg net"><b>net</b> BGP 4/4 établies · <span id="sb-ping">ping 12 ms</span></span>
+    <span class="seg cloud"><b>cloud</b> pods 8/8 Running</span>
+    <span class="seg sec"><b>sec</b> 6/6 attaques bloquées</span>
+    <span class="seg clock" id="sb-clock" aria-hidden="true"></span>
+  </div>
+</div>
+
+
+</body>
+</html>
