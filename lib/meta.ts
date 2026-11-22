@@ -21,8 +21,8 @@ export function pageMeta(locale: Locale, opts: { title?: string; description?: s
       canonical: opts.path,
       languages: locale === "fr" ? { fr: opts.path, en: opts.alt, "x-default": opts.path } : { en: opts.path, fr: opts.alt, "x-default": opts.alt },
     },
-    openGraph: { title, description, url: opts.path, type: "website", locale: locale === "fr" ? "fr_FR" : "en_US", images: [{ url: "/og.png", width: 1200, height: 630 }] },
-    twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+    openGraph: { title, description, url: opts.path, type: "website", locale: locale === "fr" ? "fr_FR" : "en_US", images: [{ url: "/og-v2.png", width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-v2.png"] },
     icons: { icon: "/icon.svg" },
   };
 }
