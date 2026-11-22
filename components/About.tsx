@@ -6,7 +6,7 @@ const PHOTO: string | null = "/photo.jpg";
 
 function Portrait() {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full max-w-sm">
+    <div className="relative mx-auto aspect-[4/5] w-full max-w-[17rem] lg:mx-0 lg:mt-2">
       <div className="absolute -inset-3 rounded-[2rem] border border-dashed border-line" />
       <div className="relative h-full overflow-hidden rounded-[1.6rem] bg-surface ring-1 ring-line">
         {PHOTO ? (
@@ -20,7 +20,6 @@ function Portrait() {
         )}
         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl border border-line bg-bg/80 px-4 py-3 backdrop-blur">
           <span className="text-sm font-medium">{profile.firstName} {profile.lastName}</span>
-          <span className="path">{profile.location}</span>
         </div>
       </div>
     </div>
@@ -31,11 +30,11 @@ export function About() {
   return (
     <section id="a-propos" className="mx-auto max-w-7xl px-5 py-28 sm:px-8 md:py-36">
       <SectionHead path="a-propos" title="Le réseau, le serveur, le pipeline. Et ce qui les protège." />
-      <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+      <div className="grid gap-14 lg:grid-cols-[17rem_1fr] lg:gap-20">
         <Reveal><Portrait /></Reveal>
         <div>
           {about.paragraphs.map((p, i) => (
-            <Reveal key={i} delay={0.08 * i}><p className="mb-6 text-lg leading-[1.75] text-muted first:text-xl first:text-ink">{p}</p></Reveal>
+            <Reveal key={i} delay={0.08 * i}><p className="mb-6 max-w-[64ch] text-lg leading-[1.75] text-muted first:text-xl first:text-ink">{p}</p></Reveal>
           ))}
           <Reveal delay={0.2}>
             <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
