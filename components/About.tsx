@@ -1,10 +1,12 @@
-import { about } from "@/lib/data";
+import type { Content } from "@/lib/content";
+import { CountUp } from "./CountUp";
 import { Reveal, SectionHead } from "./Reveal";
 
-export function About() {
+export function About({ c }: { c: Content }) {
+  const about = c.about;
   return (
     <section id="a-propos" className="mx-auto max-w-7xl px-5 py-28 sm:px-8 md:py-36">
-      <SectionHead path="a-propos" title="Le réseau, le serveur, le pipeline. Et ce qui les protège." />
+      <SectionHead path="a-propos" title={about.title} />
       <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
         <div>
           {about.paragraphs.map((p, i) => (
@@ -17,7 +19,7 @@ export function About() {
               {about.facts.map(f => (
                 <div key={f.label} className="bg-bg p-6">
                   <dt className="sr-only">{f.label}</dt>
-                  <dd className="text-3xl font-semibold tracking-tight sm:text-4xl">{f.value}</dd>
+                  <dd className="text-3xl font-semibold tracking-tight sm:text-4xl"><CountUp value={f.value} /></dd>
                   <dd className="mt-2 text-sm leading-snug text-muted">{f.label}</dd>
                 </div>
               ))}

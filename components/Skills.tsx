@@ -1,28 +1,28 @@
 "use client";
 import { motion } from "framer-motion";
 import { Activity, Network, Server, ShieldCheck, Workflow } from "lucide-react";
-import { observability, skills } from "@/lib/data";
+import type { Content } from "@/lib/content";
 import { Reveal, SectionHead } from "./Reveal";
 
 const icons = { network: Network, server: Server, shield: ShieldCheck, workflow: Workflow };
 
-export function Skills() {
+export function Skills({ c }: { c: Content }) {
+  const { skills, observability } = c;
   return (
     <section id="competences" className="border-y border-line bg-bg-2">
       <div className="mx-auto max-w-7xl px-5 py-28 sm:px-8 md:py-36">
-        <SectionHead path="competences" title="Quatre domaines, une même façon de travailler."
-          intro="Comprendre, automatiser, mesurer. Les outils changent selon la couche, la méthode reste la même." />
+        <SectionHead path="competences" title={c.skillsHead.title} intro={c.skillsHead.intro} />
         <div className="grid gap-4 md:grid-cols-2">
           {skills.map((g, i) => {
             const Icon = icons[g.icon];
             return (
               <Reveal key={g.id} delay={0.06 * i}>
-                <motion.article whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                  className="group relative h-full overflow-hidden rounded-3xl border border-line bg-surface p-8">
+                <motion.article id={`skill-${g.id}`} whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                  className="group relative h-full scroll-mt-28 overflow-hidden rounded-3xl border border-line bg-surface p-8 transition-shadow target:ring-2 target:ring-accent">
                   <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--glow)" }} />
                   <div className="mb-8 flex items-start justify-between">
                     <span className="grid h-12 w-12 place-items-center rounded-2xl border border-line bg-bg text-accent"><Icon size={22} strokeWidth={1.75} /></span>
-                    <span className="path">{String(g.tools.length).padStart(2, "0")} outils</span>
+                    <span className="path">{String(g.tools.length).padStart(2, "0")} {c.ui.tools}</span>
                   </div>
                   <h3 className="text-2xl font-semibold tracking-tight">{g.name}</h3>
                   <p className="mt-2 text-muted">{g.summary}</p>
@@ -36,7 +36,7 @@ export function Skills() {
         </div>
         <Reveal delay={0.1}>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-3xl border border-line bg-surface px-8 py-6">
-            <span className="flex items-center gap-2 font-medium"><Activity size={18} className="text-accent-2" /> Supervision</span>
+            <span className="flex items-center gap-2 font-medium"><Activity size={18} className="text-accent-2" /> {c.ui.supervision}</span>
             {observability.map(o => <span key={o} className="text-muted">{o}</span>)}
           </div>
         </Reveal>

@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://hayoubmouffok.github.io/</loc></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://hayoubmouffok.github.io/</loc><xhtml:link rel="alternate" hreflang="en" href="https://hayoubmouffok.github.io/en/"/></url>
+  <url><loc>https://hayoubmouffok.github.io/en/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://hayoubmouffok.github.io/"/></url>
+  <url><loc>https://hayoubmouffok.github.io/projets/k8s-reponse-intrusions/</loc></url>
+  <url><loc>https://hayoubmouffok.github.io/projets/reseau-datacenter/</loc></url>
+  <url><loc>https://hayoubmouffok.github.io/projets/k8s-gitops/</loc></url>
+  <url><loc>https://hayoubmouffok.github.io/en/projects/k8s-reponse-intrusions/</loc></url>
+  <url><loc>https://hayoubmouffok.github.io/en/projects/reseau-datacenter/</loc></url>
+  <url><loc>https://hayoubmouffok.github.io/en/projects/k8s-gitops/</loc></url>
+</urlset>

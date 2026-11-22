@@ -29,8 +29,8 @@ export function FabricPreview() {
   );
 }
 
-export function GitopsPreview() {
-  const apps = ["cert-manager", "ingress-nginx", "Kyverno", "Prometheus", "app durcie"];
+export function GitopsPreview({ en = false }: { en?: boolean }) {
+  const apps = ["cert-manager", "ingress-nginx", "Kyverno", "Prometheus", en ? "hardened app" : "app durcie"];
   return (
     <svg viewBox="0 0 400 260" className="h-full w-full" role="img" aria-label="Chaîne GitOps : git push, CI, Terraform, Argo CD puis cinq applications synchronisées">
       <g fontFamily="var(--font-mono)" fontSize="12">

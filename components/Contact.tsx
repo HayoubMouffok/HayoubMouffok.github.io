@@ -2,13 +2,15 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Check, Copy, Download, Loader2, Mail, Send } from "lucide-react";
-import { profile } from "@/lib/data";
+import type { Content } from "@/lib/content";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { Reveal } from "./Reveal";
 
 type State = "idle" | "sending" | "sent" | "error";
 
-export function Contact() {
+export function Contact({ c }: { c: Content }) {
+  const profile = c.profile;
+  const f = c.ui.form;
   const [state, setState] = useState<State>("idle");
   const [copied, setCopied] = useState(false);
 
@@ -22,7 +24,7 @@ export function Contact() {
       const res = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...Object.fromEntries(data), _subject: "Portfolio : nouveau message", _template: "table", _captcha: "false" }),
+        body: JSON.stringify({ ...Object.fromEntries(data), _subject: f.subject, _template: "table", _captcha: "false" }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setState("sent");
@@ -45,10 +47,10 @@ export function Contact() {
         <Reveal>
           <p className="path mb-4">~/<b>contact</b></p>
           <h2 className="text-5xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl md:text-7xl">
-            Un poste, un projet, une question ? <span className="whitespace-nowrap">Parlons-en.</span>
+            {f.title} <span className="whitespace-nowrap">{f.titleEnd}</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
-            Je cherche un poste d'ingénieur DevOps, systèmes, réseaux ou cybersécurité en Île-de-France, disponible immédiatement.
+            {f.intro}
           </p>
           <div className="mt-10 space-y-3">
             <div className="flex flex-wrap items-center gap-3">
@@ -56,14 +58,14 @@ export function Contact() {
                 <Mail size={22} className="text-accent" />
                 <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_1px]">{profile.email}</span>
               </a>
-              <button type="button" onClick={copyMail} aria-label="Copier l'adresse e-mail" className="grid h-9 w-9 place-items-center rounded-full border border-line text-muted transition-colors hover:text-ink">
+              <button type="button" onClick={copyMail} aria-label={f.copy} className="grid h-9 w-9 place-items-center rounded-full border border-line text-muted transition-colors hover:text-ink">
                 {copied ? <Check size={15} /> : <Copy size={15} />}
               </button>
             </div>
             <div className="pt-4">
-              <p className="mb-3 text-sm text-muted">Télécharger mon CV</p>
+              <p className="mb-3 text-sm text-muted">{c.ui.cv}</p>
               <div className="flex flex-wrap gap-2">
-                {[["DevOps", "DevOps"], ["Réseaux", "Reseaux"], ["Systèmes", "Systemes"], ["Cybersécurité", "Securite"]].map(([label, file]) => (
+                {c.ui.cvList.map(([label, file]) => (
                   <a key={file} href={`/cv/CV_Hayoub_Mouffok_${file}.pdf`} download className="inline-flex items-center gap-1.5 rounded-full bg-surface px-4 py-2 text-sm ring-1 ring-line transition-colors hover:ring-accent">
                     <Download size={14} className="text-accent" /> {label}
                   </a>
@@ -79,20 +81,20 @@ export function Contact() {
 
         <Reveal delay={0.1}>
           <form name="contact" onSubmit={submit} className="rounded-[2rem] border border-line bg-surface p-6 sm:p-8">
-            <p className="hidden"><label>Ne pas remplir : <input name="_honey" tabIndex={-1} autoComplete="off" /></label></p>
+            <p className="hidden"><label>— <input name="_honey" tabIndex={-1} autoComplete="off" /></label></p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="block"><span className="mb-2 block text-sm text-muted">Nom</span><input name="nom" required autoComplete="name" className={field} placeholder="Votre nom" /></label>
-              <label className="block"><span className="mb-2 block text-sm text-muted">E-mail</span><input name="email" type="email" required autoComplete="email" className={field} placeholder="vous@entreprise.fr" /></label>
+              <label className="block"><span className="mb-2 block text-sm text-muted">{f.name}</span><input name="nom" required autoComplete="name" className={field} placeholder={f.namePh} /></label>
+              <label className="block"><span className="mb-2 block text-sm text-muted">{f.email}</span><input name="email" type="email" required autoComplete="email" className={field} placeholder={f.emailPh} /></label>
             </div>
-            <label className="mt-4 block"><span className="mb-2 block text-sm text-muted">Entreprise (facultatif)</span><input name="entreprise" autoComplete="organization" className={field} placeholder="Votre entreprise" /></label>
-            <label className="mt-4 block"><span className="mb-2 block text-sm text-muted">Message</span><textarea name="message" required rows={5} className={`${field} resize-none`} placeholder="Le poste, le contexte, vos questions…" /></label>
+            <label className="mt-4 block"><span className="mb-2 block text-sm text-muted">{f.company}</span><input name="entreprise" autoComplete="organization" className={field} placeholder={f.companyPh} /></label>
+            <label className="mt-4 block"><span className="mb-2 block text-sm text-muted">{f.message}</span><textarea name="message" required rows={5} className={`${field} resize-none`} placeholder={f.messagePh} /></label>
             <button type="submit" disabled={state === "sending"}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-[15px] font-medium text-bg transition-transform hover:-translate-y-0.5 disabled:opacity-60">
-              {state === "sending" ? <><Loader2 size={18} className="animate-spin" /> Envoi…</> : <><Send size={17} /> Envoyer le message</>}
+              {state === "sending" ? <><Loader2 size={18} className="animate-spin" /> {f.sending}</> : <><Send size={17} /> {f.send}</>}
             </button>
             <AnimatePresence>
-              {state === "sent" && <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} role="status" className="mt-4 text-center text-sm text-accent-2">Message envoyé. Je reviens vers vous rapidement.</motion.p>}
-              {state === "error" && <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} role="alert" className="mt-4 text-center text-sm text-red-500">L'envoi a échoué. Écrivez-moi directement à {profile.email}.</motion.p>}
+              {state === "sent" && <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} role="status" className="mt-4 text-center text-sm text-accent-2">{f.sent}</motion.p>}
+              {state === "error" && <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} role="alert" className="mt-4 text-center text-sm text-red-500">{f.error} {profile.email}.</motion.p>}
             </AnimatePresence>
           </form>
         </Reveal>

@@ -2,13 +2,14 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Briefcase, GraduationCap, Rocket } from "lucide-react";
-import { timeline } from "@/lib/data";
+import type { Content } from "@/lib/content";
 import { Reveal, SectionHead } from "./Reveal";
 
 const kindIcon = { pro: Briefcase, formation: GraduationCap, projet: Rocket };
-const kindLabel = { pro: "Expérience", formation: "Formation", projet: "Projet" };
 
-export function Timeline() {
+export function Timeline({ c }: { c: Content }) {
+  const { timeline } = c;
+  const kindLabel = c.ui.kinds;
   const ref = useRef<HTMLOListElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 60%"] });
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
@@ -16,10 +17,11 @@ export function Timeline() {
   return (
     <section id="parcours" className="border-t border-line bg-bg-2">
       <div className="mx-auto max-w-7xl px-5 py-28 sm:px-8 md:py-36">
-        <SectionHead path="parcours" title="Du câble au cluster." intro="Six ans de réseau, de systèmes et de sécurité, entre l'entreprise, la recherche et mon propre produit." />
-        <ol ref={ref} className="relative ml-3 md:ml-0">
-          <div className="absolute bottom-2 left-0 top-2 w-px bg-line md:left-[11.5rem]" />
-          <motion.div style={{ scaleY: progress }} className="absolute bottom-2 left-0 top-2 w-px origin-top bg-accent md:left-[11.5rem]" />
+        <SectionHead path="parcours" title={c.timelineHead.title} intro={c.timelineHead.intro} />
+        <div className="relative ml-3 md:ml-0">
+        <div className="absolute bottom-2 left-0 top-2 w-px bg-line md:left-[11.5rem]" aria-hidden="true" />
+        <motion.div style={{ scaleY: progress }} className="absolute bottom-2 left-0 top-2 w-px origin-top bg-accent md:left-[11.5rem]" aria-hidden="true" />
+        <ol ref={ref} className="relative">
           {timeline.map((s, i) => {
             const Icon = kindIcon[s.kind];
             return (
@@ -40,6 +42,7 @@ export function Timeline() {
             );
           })}
         </ol>
+        </div>
       </div>
     </section>
   );
