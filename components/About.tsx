@@ -2,7 +2,7 @@ import { about, profile } from "@/lib/data";
 import { Reveal, SectionHead } from "./Reveal";
 
 // Mettre une photo dans public/photo.jpg puis passer PHOTO à "/photo.jpg".
-const PHOTO: string | null = null;
+const PHOTO: string | null = "/photo.jpg";
 
 function Portrait() {
   return (
