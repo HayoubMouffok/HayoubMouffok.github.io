@@ -213,9 +213,9 @@ const fr = {
       },
     },
   ] as Project[],
-  timelineHead: { title: "Du câble au cluster.", intro: "Six ans de réseau, de systèmes et de sécurité, entre l'entreprise, la recherche et mon propre produit." },
+  timelineHead: { title: "Du câble au cluster.", intro: "Six ans de réseau, de systèmes et de sécurité, entre l'entreprise, la recherche et mes projets personnels." },
   timeline: [
-    { period: "2026 — aujourd'hui", title: "Co-fondateur technique", place: "Haltere Ego", kind: "projet", text: "Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH. Je la fais évoluer à partir des retours des bêta-testeurs." },
+    { period: "2026 — aujourd'hui", title: "Projet personnel", place: "Haltere Ego", kind: "projet", text: "Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH, que je développe sur mon temps libre. Ma priorité : un poste d'ingénieur en CDI." },
     { period: "2024 — 2025", title: "Ingénieur chercheur, sécurité Kubernetes", place: "CNAM, Paris", kind: "pro", text: "Architecture de sécurité adaptative, de la détection à l'action : une réponse en 0,9 s au lieu d'environ 50 minutes à la main." },
     { period: "2023 — 2025", title: "Master Réseaux et Objets Connectés", place: "CNAM, Paris", kind: "formation", text: "Mémoire : orchestration dynamique de politiques de sécurité dans Kubernetes." },
     { period: "2022 — 2024", title: "Administrateur systèmes et réseaux", place: "Redpill, Paris", kind: "pro", text: "Production Linux et AWS, CI/CD avec GitLab CI et Jenkins, Ansible et Terraform, VPN pour 80 personnes, gestion des accès et des secrets." },
@@ -404,9 +404,9 @@ const en: typeof fr = {
       },
     },
   ],
-  timelineHead: { title: "From cable to cluster.", intro: "Six years of networking, systems and security, across industry, research and my own product." },
+  timelineHead: { title: "From cable to cluster.", intro: "Six years of networking, systems and security, across industry, research and personal projects." },
   timeline: [
-    { period: "2026 — now", title: "Technical co-founder", place: "Haltere Ego", kind: "projet", text: "Strength-training tracking app in beta, containerized and hosted on OVH. I evolve it from beta-tester feedback." },
+    { period: "2026 — now", title: "Personal project", place: "Haltere Ego", kind: "projet", text: "Strength-training tracking app in beta, containerized and hosted on OVH, built in my spare time. My priority: a full-time engineering role." },
     { period: "2024 — 2025", title: "Research engineer, Kubernetes security", place: "CNAM, Paris", kind: "pro", text: "Adaptive security architecture, from detection to action: a 0.9 s response instead of roughly 50 minutes by hand." },
     { period: "2023 — 2025", title: "MSc Networks and Connected Objects", place: "CNAM, Paris", kind: "formation", text: "Thesis: dynamic orchestration of security policies in Kubernetes." },
     { period: "2022 — 2024", title: "Systems and network administrator (work-study)", place: "Redpill, Paris", kind: "pro", text: "Linux and AWS production, CI/CD with GitLab CI and Jenkins, Ansible and Terraform, VPN for 80 people, access and secrets management." },
